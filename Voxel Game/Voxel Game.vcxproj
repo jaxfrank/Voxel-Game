@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{224AF3DC-CC15-4278-BE45-AD373C191375}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Voxel Game</RootNamespace>
+    <ProjectName>Voxel Game</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IntDir>$(ProjectDir)$(Configuration)\tmp\</IntDir>
+    <LibraryPath>$(ProjectDir)..\Middleware\SFML\lib;$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSDK_LibraryPath_x86);</LibraryPath>
+    <OutDir>$(ProjectDir)$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IntDir>$(Configuration)\tmp\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\Middleware\glm;$(ProjectDir)..\Middleware\SFML\include;$(ProjectDir)..\Middleware\glew\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\Middleware\SFML\lib;$(ProjectDir)..\Middleware\glew\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glew32.lib;opengl32.lib;sfml-graphics-d.lib;sfml-system-d.lib;sfml-window-d.lib;sfml-main-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\Middleware\glm;$(ProjectDir)..\Middleware\SFML\include;$(ProjectDir)..\Middleware\glew\include;</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\Middleware\SFML\lib;$(ProjectDir)..\Middleware\glew\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glew32.lib;opengl32.lib;sfml-graphics.lib;sfml-system.lib;sfml-window.lib;sfml-main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="voxel\core\world\Block.cpp" />
+    <ClCompile Include="voxel\core\rendering\Camera.cpp" />
+    <ClCompile Include="voxel\core\world\Chunk.cpp" />
+    <ClCompile Include="voxel\core\Game.cpp" />
+    <ClCompile Include="voxel\core\ID.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MainWindow.cpp" />
+    <ClCompile Include="voxel\core\rendering\Mesh.cpp" />
+    <ClCompile Include="voxel\core\Screen.cpp" />
+    <ClCompile Include="voxel\core\rendering\Shader.cpp" />
+    <ClCompile Include="voxel\core\math\Transform.cpp" />
+    <ClCompile Include="voxel\core\rendering\Util.cpp" />
+    <ClCompile Include="voxel\core\rendering\Vertex.cpp" />
+    <ClCompile Include="voxel\core\world\WorldManager.cpp" />
+    <ClCompile Include="voxel\core\world\World.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="voxel\core\world\Block.h" />
+    <ClInclude Include="voxel\core\rendering\Camera.h" />
+    <ClInclude Include="voxel\core\world\Chunk.h" />
+    <ClInclude Include="voxel\core\Game.h" />
+    <ClInclude Include="voxel\core\ID.h" />
+    <ClInclude Include="MainWindow.h" />
+    <ClInclude Include="voxel\core\rendering\Mesh.h" />
+    <ClInclude Include="voxel\core\Screen.h" />
+    <ClInclude Include="voxel\core\rendering\Shader.h" />
+    <ClInclude Include="voxel\core\math\Transform.h" />
+    <ClInclude Include="voxel\core\rendering\Util.h" />
+    <ClInclude Include="voxel\core\rendering\Vertex.h" />
+    <ClInclude Include="voxel\core\world\Directions.h" />
+    <ClInclude Include="voxel\core\world\WorldManager.h" />
+    <ClInclude Include="voxel\core\world\World.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\shaders\Basic.fs" />
+    <None Include="res\shaders\Basic.vs" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
